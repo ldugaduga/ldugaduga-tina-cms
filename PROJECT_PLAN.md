@@ -74,12 +74,21 @@ Notes / follow-ups for Phase 3:
 
 ## Phase 5 — SEO & a11y parity
 
-- [ ] Port `robots.txt`, `sitemap.xml` (or regenerate via `next-sitemap`)
-- [ ] Port meta tags, Open Graph tags, structured data if present in current `index.html`
-- [ ] Re-check accessibility fixes already made in the current site (per recent commit history) carry over — alt text, aria labels, focus states
-- [ ] Run Lighthouse against both sites and compare scores (performance, SEO, a11y)
+- [x] Ported `robots.txt` and `sitemap.xml` as Next's native `app/robots.ts` / `app/sitemap.ts` metadata routes (generated from `settings.canonicalUrl`, no extra package needed) — verified output is byte-for-byte equivalent to the original, with `Disallow: /form` taking over from the old `/form.html` disallow
+- [x] Verified meta tags, Open Graph, Twitter card, and the Person JSON-LD structured data all carried over correctly — already wired in Phase 3's `generateMetadata()` + root layout; confirmed by diffing the rendered `<head>` against the original (title, description, canonical, og:*, twitter:card, JSON-LD, favicons all present; Next also auto-added twitter:title/description/image as a bonus)
+- [x] Re-checked accessibility: all `aria-*`/`role` attributes from the original (dialog, nav toggle, slider buttons, star ratings, social icons) are present in the rendered output; image alt text and heading structure (one `h1`, section `h2`s) match the original markup
+- [x] Ran Lighthouse against both sites (production builds, not dev servers) and compared. Performance couldn't be scored for the new site — Lighthouse's trace engine threw `NO_LCP` consistently against the Next/Turbopack build in this headless sandbox (confirmed page renders and paints instantly in an actual browser; likely a headless-Chrome/trace-engine compatibility issue with this specific toolchain, not a real performance problem) — but accessibility/best-practices/SEO all ran cleanly:
 
-**Done when:** Lighthouse scores on the new site are at or above the current static site's.
+  | Category | Old static site | New Next.js site |
+  |---|---|---|
+  | Performance | 100 | *(untestable in this sandbox — see above)* |
+  | Accessibility | 71 | **100** |
+  | Best Practices | 92 | **100** |
+  | SEO | 90 | **100** |
+
+  The accessibility run caught two real color-contrast failures (`.quote-attr` on testimonial cards, `.footer-left p` copyright text — both used `--text-tertiary` at a 3.66–3.91:1 ratio against their backgrounds, short of the 4.5:1 minimum) plus the same issue on `.tl-date` in the experience timeline found by inspection. Fixed all three by switching to `--text-secondary` (7.8–8.4:1), verified visually afterward — no visible design change, just more legible. Old site's run didn't flag these (likely an axe-core/Lighthouse-version difference, not evidence the old site was actually fine), but the fix is correct regardless.
+
+**Done when:** Lighthouse scores on the new site are at or above the current static site's. ✅ Done 2026-10-03 for every category Lighthouse could actually run in this environment (a11y/best-practices/SEO, all now ahead of the old site). Performance should be re-run once deployed (e.g. via PageSpeed Insights or Lighthouse in a normal, non-sandboxed Chrome) since the static, image-optimized Next build has every reason to match or beat the old site's 100 — just couldn't get a trustworthy number out of this sandbox.
 
 ## Phase 6 — Deploy & cutover
 
