@@ -95,7 +95,6 @@ export default defineConfig({
         label: 'Services',
         path: 'content/services',
         format: 'json',
-        ui: { itemProps: (item) => ({ label: item?.title }) },
         fields: [
           { type: 'string', name: 'title', label: 'Title', isTitle: true, required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
@@ -117,7 +116,6 @@ export default defineConfig({
         label: 'Process Steps',
         path: 'content/process',
         format: 'json',
-        ui: { itemProps: (item) => ({ label: item?.title }) },
         fields: [
           { type: 'string', name: 'title', label: 'Title', isTitle: true, required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
@@ -132,7 +130,6 @@ export default defineConfig({
         label: 'Work',
         path: 'content/work',
         format: 'json',
-        ui: { itemProps: (item) => ({ label: item?.title }) },
         fields: [
           { type: 'string', name: 'title', label: 'Project Title', isTitle: true, required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
@@ -162,7 +159,6 @@ export default defineConfig({
         label: 'Experience',
         path: 'content/experience',
         format: 'json',
-        ui: { itemProps: (item) => ({ label: item?.company }) },
         fields: [
           { type: 'string', name: 'company', label: 'Company', isTitle: true, required: true },
           { type: 'string', name: 'role', label: 'Role' },
@@ -178,7 +174,6 @@ export default defineConfig({
         label: 'Testimonials',
         path: 'content/testimonials',
         format: 'json',
-        ui: { itemProps: (item) => ({ label: item?.attribution }) },
         fields: [
           { type: 'string', name: 'quote', label: 'Quote', isTitle: true, required: true, ui: { component: 'textarea' } },
           { type: 'string', name: 'attribution', label: 'Attribution / project label' },

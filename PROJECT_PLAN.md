@@ -50,14 +50,16 @@ Notes / follow-ups for Phase 3:
 
 ## Phase 3 — Port design
 
-- [ ] Port `assets/style.css` into the Next.js app (global CSS import or CSS modules — keep visual parity, don't redesign)
-- [ ] Port fonts (Inter via Google Fonts) and icons (Phosphor) — use `next/font` for Inter
-- [ ] Port favicon set (`favicon.svg`, 16/32 PNGs, apple-touch-icon)
-- [ ] Rebuild page markup as React components driven by Tina content (hero, availability strip, services, process, selected work, experience timeline, testimonials carousel, contact modal)
-- [ ] Port contact form (`form.html` fallback) — decide: keep as static fallback, or replace with a Next.js API route / form service (e.g. Formspree, Resend)
-- [ ] Re-add Google Analytics (gtag.js) via `next/script`
+- [x] Ported `assets/style.css` into `app/globals.css` almost verbatim (same custom properties, same class names) — dropped the Tailwind the Phase 1 scaffold pulled in (`npm uninstall tailwindcss @tailwindcss/postcss`, removed `postcss.config.mjs`) since nothing in the port uses it and the original open question favored plain CSS
+- [x] Fonts: Inter via `next/font/google` (`--font-inter` CSS variable). Icons: Phosphor web CSS loaded via a `<link>` tag in the root layout (same CDN URL as the original, hoisted into `<head>` by Next)
+- [x] Favicon set copied to `public/` (`favicon.svg`, 16×16/32×32 PNGs, apple-touch-icon) and wired via `generateMetadata().icons`
+- [x] Rebuilt every section as a component under `components/`, composed in `app/(site)/page.tsx`, fetching real content server-side via `lib/content.ts` (Tina's generated GraphQL client): `Header`, `Hero` + `StatCounter`, `AvailabilityStrip`, `Services`, `Process`, `Work` (client component for "load more"), `Experience`, `Testimonials` (client component for the scroll-snap slider), `FinalCta`, `Footer`. `Reveal` reimplements the original IntersectionObserver fade-in as a small client wrapper. `Icon` and `RichLabel` handle the `simpleicons:` icon sentinel and the `*em*`/`**strong**` text convention from Phase 2
+- [x] Contact form: ported both the modal (`ContactModal` + `ContactModalContext` + `StartProjectButton`, open from the nav/hero/final CTA) and the standalone `/form` fallback page (`FallbackContactForm`), matching `form.html` 1:1 including its no-header/no-footer layout — required splitting `app/layout.tsx` into a thin root layout (fonts, GA, JSON-LD, Phosphor stylesheet) plus an `app/(site)/layout.tsx` route group that adds the header/footer/modal only around the main site, so `/form` can stay bare. Both forms still POST to the Formspree endpoint from `settings.contactFormAction`
+- [x] Re-added Google Analytics (gtag.js) via `next/script`, gated on `settings.gaId` being set
 
-**Done when:** the new site visually matches the current one 1:1 in a side-by-side check, content now coming from Tina-managed files instead of inline HTML.
+**Done when:** the new site visually matches the current one 1:1 in a side-by-side check, content now coming from Tina-managed files instead of inline HTML. ✅ Done 2026-10-03 — verified with `tsc --noEmit` (clean), `eslint` (clean on all our own code), `next build` compiling and type-checking successfully, and a real browser pass (Claude in Chrome) against the local dev server: hero/stats/services/process/work/experience/testimonials/footer all render with real content, "Load more work" reveals the remaining projects, the contact modal opens/closes (Escape, overlay click, focus handling) and the testimonials slider's prev/next buttons work with correct disabled states. No console errors.
+
+Known gap, deferred to Phase 6: `next build`'s static-export step fails right now because the generated Tina GraphQL client points at the local-only dev server (`localhost:4001`) — a full production build needs either a Tina Cloud connection (`clientId`/`token`, Phase 0) or `tinacms build --local` wired into the deploy command.
 
 ## Phase 4 — Editing workflow
 
