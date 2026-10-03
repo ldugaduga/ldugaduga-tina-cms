@@ -63,12 +63,13 @@ Known gap, deferred to Phase 6: `next build`'s static-export step fails right no
 
 ## Phase 4 — Editing workflow
 
-- [ ] Verify editing each collection in `/admin` updates the underlying Markdown/JSON files correctly
-- [ ] Verify git-backed save flow: local dev writes to disk; Tina Cloud (if used) writes via GitHub App commits on the deployed site
-- [ ] Set up branch/PR workflow if non-admin users will edit on the deployed site (Tina Cloud supports editorial workflow with PR review — decide if needed)
-- [ ] Confirm image uploads (e.g. new work screenshots) land in the right `public/` or media location and are git-tracked
+- [x] Verified editing each collection in `/admin` updates the underlying JSON files correctly — tested end-to-end with a real browser (Claude in Chrome): opened `/admin/index.html`, entered local edit mode ("When you save, changes will be saved to the local filesystem"), edited a testimonial's attribution field, saved, confirmed the "Document updated!" toast, then confirmed on disk that `content/testimonials/10.json` had the new value. Reverted the test edit the same way afterward
+- [x] Verified the Site Settings singleton: `/admin` → Site Settings opens straight to the one document (no list view, no "new"/"delete" actions) thanks to `ui.global: true` + `allowedActions`, exactly as modeled in Phase 2
+- [x] Verified git-backed save flow for local dev: confirmed above — writes land directly on disk as plain file edits, so they show up as normal uncommitted changes (`git status`/`git diff`) ready to commit. Tina Cloud's GitHub App commit flow (for editing against the deployed site) can't be verified until Phase 0/6 set up a real Tina Cloud project and connected repo — noted as a Phase 6 follow-up, not re-blocking this phase
+- [x] Confirmed image uploads land correctly: used the admin's Media Manager to upload a test image (via the hidden file input, since the picker is a native OS dialog), confirmed it appeared in the library with a working public URL, and confirmed on disk it was written straight into `public/` as an untracked file ready for git. Also confirmed deleting it from the Media Manager removes it from disk. The existing `public/work/*.jpg` screenshots and favicons already show up and preview correctly in the same Media Manager
+- [ ] Branch/PR editorial workflow (Tina Cloud) — **deferred, not needed for now**: this is a single-editor site (just Louie), so Tina Cloud's PR-review editorial workflow isn't worth the extra setup. Revisit only if a second non-admin editor is added later
 
-**Done when:** content can be edited through the Tina admin UI (locally and on the deployed preview) and changes show up as git commits.
+**Done when:** content can be edited through the Tina admin UI (locally and on the deployed preview) and changes show up as git commits. ✅ Done 2026-10-03 for the local half (verified above); the "on the deployed preview" half depends on Tina Cloud being connected in Phase 6.
 
 ## Phase 5 — SEO & a11y parity
 
