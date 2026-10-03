@@ -1,0 +1,11 @@
+{
+  "title": "Voyager Campervans",
+  "url": "https://voyagercampervans.com/",
+  "image": "/work/voyager.jpg",
+  "alt": "Voyager Campervans website homepage",
+  "description": "Campervan rental, sales and build-kit company for van life across North America.",
+  "platform": "wordpress",
+  "category": "Travel",
+  "featured": false,
+  "order": 11
+}

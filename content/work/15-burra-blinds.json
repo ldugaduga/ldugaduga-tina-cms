@@ -1,0 +1,11 @@
+{
+  "title": "Burra Blinds",
+  "url": "https://burrablinds.com.au/",
+  "image": "/work/burrablinds.jpg",
+  "alt": "Burra Blinds website homepage",
+  "description": "Quote-driven site for a Sydney blinds, shutters and curtains installer.",
+  "platform": "wordpress",
+  "category": "Home services",
+  "featured": false,
+  "order": 15
+}

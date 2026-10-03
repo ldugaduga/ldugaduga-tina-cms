@@ -1,0 +1,11 @@
+{
+  "title": "Aussie Turtles",
+  "url": "https://www.aussieturtles.com/",
+  "image": "/work/aussieturtles.jpg",
+  "alt": "Aussie Turtles website homepage",
+  "description": "Content and community hub for trend-following traders, with books and events.",
+  "platform": "wordpress",
+  "category": "Finance",
+  "featured": false,
+  "order": 19
+}

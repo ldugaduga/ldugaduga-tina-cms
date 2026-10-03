@@ -1,0 +1,12 @@
+{
+  "title": "Agentic-assisted design & code",
+  "description": "I pair with AI coding agents to design and build faster, then review and test every line myself before it ships. Same code quality, shorter turnaround.",
+  "icon": "ph-robot",
+  "featured": false,
+  "tags": [
+    "AI-assisted dev",
+    "Rapid prototyping",
+    "Human-reviewed"
+  ],
+  "order": 4
+}

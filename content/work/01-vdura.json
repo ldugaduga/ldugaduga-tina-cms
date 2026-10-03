@@ -1,0 +1,11 @@
+{
+  "title": "VDURA",
+  "url": "https://vdura.com",
+  "image": "/work/vdura.jpg",
+  "alt": "VDURA website homepage",
+  "description": "AI and HPC data storage platform for enterprise and neocloud infrastructure.",
+  "platform": "wordpress",
+  "category": "Enterprise tech",
+  "featured": true,
+  "order": 1
+}

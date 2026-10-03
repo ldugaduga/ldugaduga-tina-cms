@@ -1,0 +1,11 @@
+{
+  "title": "AUSWOOD",
+  "url": "https://www.auswood.com.au/",
+  "image": "/work/auswood.jpg",
+  "alt": "AUSWOOD website homepage",
+  "description": "Catalogue site for an Australian timber flooring, formwork and plywood supplier.",
+  "platform": "wordpress",
+  "category": "Building supplies",
+  "featured": false,
+  "order": 17
+}

@@ -1,0 +1,15 @@
+{
+  "title": "WordPress, built to last",
+  "description": "Elementor, Divi, Genesis, Avada, or ThemeX, whichever your team already knows. I build new themes and fix the ones that broke after the last developer left. Migrations, updates, and ongoing maintenance included.",
+  "icon": "simpleicons:wordpress",
+  "featured": true,
+  "tags": [
+    "Elementor",
+    "Divi",
+    "Genesis",
+    "Avada",
+    "ThemeX",
+    "Migrations"
+  ],
+  "order": 1
+}

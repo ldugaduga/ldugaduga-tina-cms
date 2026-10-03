@@ -1,0 +1,12 @@
+{
+  "title": "Servers that keep running",
+  "description": "LAMP stack setup, SSH access, DigitalOcean deployments, domain management, and WordPress migrations without lost data.",
+  "icon": "ph-terminal-window",
+  "featured": false,
+  "tags": [
+    "LAMP",
+    "SSH",
+    "DigitalOcean"
+  ],
+  "order": 3
+}

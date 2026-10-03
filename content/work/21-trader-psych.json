@@ -1,0 +1,11 @@
+{
+  "title": "Trader Psych",
+  "url": "https://www.traderpsych.com/",
+  "image": "/work/traderpsych.jpg",
+  "alt": "Trader Psych website homepage",
+  "description": "Resource site on the psychology of trading and staying disciplined.",
+  "platform": "wordpress",
+  "category": "Finance",
+  "featured": false,
+  "order": 21
+}

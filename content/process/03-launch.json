@@ -1,0 +1,6 @@
+{
+  "title": "Launch",
+  "description": "Cross-browser and mobile tested, deployed with a rollback plan in case anything needs undoing.",
+  "icon": "ph-rocket-launch",
+  "order": 3
+}

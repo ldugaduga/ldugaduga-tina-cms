@@ -1,0 +1,11 @@
+{
+  "title": "MAPconnected",
+  "url": "https://www.mapconnected.com/",
+  "image": "/work/mapconnected.jpg",
+  "alt": "MAPconnected website homepage",
+  "description": "Membership and events platform for warranty and service industry leaders.",
+  "platform": "wordpress",
+  "category": "Membership",
+  "featured": true,
+  "order": 4
+}

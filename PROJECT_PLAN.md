@@ -32,16 +32,21 @@ Known rough edges to revisit:
 
 Map each section of the current `index.html` to a Tina collection/field schema:
 
-- [ ] `siteSettings` (singleton): hero headline/subhead, availability strip text, contact info, social links, GA tracking ID
-- [ ] `services` (list): title, description, icon (Phosphor icon name)
-- [ ] `process` (list): step title, description, order
-- [ ] `work` (list): project title, description, screenshot image, live URL, platform/tech pills — port images from `assets/work/*.jpg`
-- [ ] `experience` (list): role/company, date range, description — timeline entries
-- [ ] `testimonials` (list): quote, author name, source (Upwork), rating, link if any
-- [ ] Decide file format per collection: Markdown+frontmatter vs. pure JSON (JSON is fine for structured, non-prose list data like `work`/`testimonials`)
-- [ ] Write `tina/config.ts` schema for each collection above
+- [x] `settings` (singleton, `content/settings/site.json`, `ui.global: true`): SEO title/description/canonical/OG image, GA id, hero headline/sub, availability strip text, 4 hero stats, contact form action, final CTA copy, social links
+- [x] `service` (list, `content/services/*.json`): title, description, icon, featured flag, tags, order — all 4 real services migrated
+- [x] `processStep` (list, `content/process/*.json`): title, description, icon, order — all 4 real steps migrated
+- [x] `work` (list, `content/work/*.json`): title, description, live URL, screenshot image + alt, platform (wordpress/shopify), category, featured (shown-by-default vs. "load more"), order — all 21 real projects migrated, screenshots copied to `public/work/*.jpg`
+- [x] `experience` (list, `content/experience/*.json`): company, role, date range, current flag, order — all 9 real timeline entries migrated
+- [x] `testimonial` (list, `content/testimonials/*.json`): quote, attribution, rating, order — all 10 real Upwork testimonials migrated
+- [x] File format: JSON for every collection (no prose body needed anywhere, so plain JSON frontmatter-less files kept things simple — no Markdown/MDX needed for this content)
+- [x] Wrote `tina/config.ts` schema for all 6 collections above; removed the Tina CLI's demo `post` collection/content and the Pages Router demo route it scaffolded
 
-**Done when:** every visible content block in current `index.html` has a corresponding Tina-editable field, with no hardcoded copy left to migrate.
+**Done when:** every visible content block in current `index.html` has a corresponding Tina-editable field, with no hardcoded copy left to migrate. ✅ Done 2026-10-03 — verified via direct GraphQL queries against the local Tina dev server (`workConnection` returned all 21 projects, `settings` returned hero/stats, `testimonialConnection`/`experienceConnection` returned all 10/9 entries) and `/admin/index.html` loading with the real schema.
+
+Notes / follow-ups for Phase 3:
+- `heroHeadline` and `availabilityText` use a lightweight `*emphasis*` / `**bold**` text convention (plain string fields, not rich-text) — Phase 3 needs a small helper to render those spans instead of dumping raw asterisks
+- `service.icon` stores either a Phosphor class name (`ph-code`) or the sentinel `simpleicons:wordpress` for the one brand-colored icon from `cdn.simpleicons.org` — Phase 3 needs a tiny branch in the icon renderer for that case
+- Work item ordering was taken directly from source order (first 6 = `featured: true`, matching the current "show 6, load more" behavior); re-ordering later just means editing each file's `order` field in the Tina admin
 
 ## Phase 3 — Port design
 

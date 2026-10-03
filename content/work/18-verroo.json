@@ -1,0 +1,11 @@
+{
+  "title": "Verroo",
+  "url": "https://www.verroo.com.au/",
+  "image": "/work/verroo.jpg",
+  "alt": "Verroo website homepage",
+  "description": "Product site for an Australian-made smart lock and mobile access ecosystem.",
+  "platform": "wordpress",
+  "category": "Security tech",
+  "featured": false,
+  "order": 18
+}

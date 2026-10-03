@@ -1,0 +1,11 @@
+{
+  "title": "Bobo Choses",
+  "url": "https://bobochoses.com/",
+  "image": "/work/bobochoses.jpg",
+  "alt": "Bobo Choses website homepage",
+  "description": "Dev collaboration on a Shopify storefront for a women's and kids' fashion brand.",
+  "platform": "shopify",
+  "category": "eCommerce",
+  "featured": false,
+  "order": 10
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Xtreme 4x4 Tours",
+  "url": "https://www.xtreme4x4tours.com/",
+  "image": "/work/xtreme4x4.jpg",
+  "alt": "Xtreme 4x4 Tours website homepage",
+  "description": "Booking site for an off-road rock-crawling tour operator in Moab, Utah.",
+  "platform": "wordpress",
+  "category": "Tourism",
+  "featured": true,
+  "order": 2
+}

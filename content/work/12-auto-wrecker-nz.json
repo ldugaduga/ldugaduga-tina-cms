@@ -1,0 +1,11 @@
+{
+  "title": "Auto Wrecker NZ",
+  "url": "https://www.autowrecker.nz/",
+  "image": "/work/autowrecker.jpg",
+  "alt": "Auto Wrecker NZ website homepage",
+  "description": "Lead-generation site for a car wrecking and cash-for-cars service in New Zealand.",
+  "platform": "wordpress",
+  "category": "Automotive",
+  "featured": false,
+  "order": 12
+}

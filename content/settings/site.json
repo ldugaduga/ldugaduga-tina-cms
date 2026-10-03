@@ -1,0 +1,53 @@
+{
+  "seoTitle": "Louie Dugaduga - WordPress & Frontend Developer",
+  "seoDescription": "18 years building fast, maintainable WordPress and HTML sites for agencies and small businesses. WordPress development, design-to-code, and server administration.",
+  "canonicalUrl": "https://ldugaduga.github.io/",
+  "ogImage": "/work/vdura.jpg",
+  "gaId": "G-VMQP5VEE18",
+  "heroHeadline": "WordPress sites that don't break *after* handoff.",
+  "heroSub": "18 years of WordPress and HTML builds, fast to ship and built to last, for agencies done with rebuilds.",
+  "availabilityText": "**Available for new projects.** Based in the Philippines, working with clients in the US, UK, and Australia.",
+  "stats": [
+    {
+      "value": 18,
+      "label": "Years building for the web, since 2008"
+    },
+    {
+      "value": 15,
+      "label": "Years with one client still on retainer"
+    },
+    {
+      "value": 9,
+      "label": "Long-term client relationships"
+    },
+    {
+      "value": 5,
+      "label": "WordPress builders mastered"
+    }
+  ],
+  "contactFormAction": "https://formspree.io/f/xrgrqdol",
+  "ctaHeadline": "Have a WordPress site that needs fixing, migrating, or rebuilding?",
+  "ctaSub": "Send over the details or connect on LinkedIn, I usually reply within a day.",
+  "socialLinks": [
+    {
+      "label": "Upwork",
+      "url": "https://www.upwork.com/freelancers/~01a9b9d3c52f9eeb7e",
+      "icon": "ph-briefcase"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/ldugaduga/",
+      "icon": "ph-github-logo"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/louie-dugaduga-514a8912/",
+      "icon": "ph-linkedin-logo"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/louiemd1218",
+      "icon": "ph-facebook-logo"
+    }
+  ]
+}
