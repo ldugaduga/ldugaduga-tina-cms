@@ -17,12 +17,16 @@ Work through phases in order; each has a "done when" so you know when to move on
 
 ## Phase 1 — Scaffold the new app
 
-- [ ] `npx create-next-app@latest` (TypeScript, App Router, Tailwind optional — current site uses plain CSS, decide whether to port as-is or adopt Tailwind)
-- [ ] `npx @tinacms/cli init` (or manual install: `tinacms`, `@tinacms/cli`) to add Tina config and `tina/config.ts`
-- [ ] Verify local Tina admin loads at `/admin/index.html` (dev mode) against a placeholder collection
-- [ ] Commit scaffold
+- [x] `npx create-next-app@latest` (TypeScript, App Router). Note: Tailwind ended up installed by the CLI's current default template despite requesting plain CSS — left in place since plain-CSS-vs-Tailwind was already an open question (see below); the `assets/style.css` port in Phase 3 can either go in as global CSS alongside Tailwind, or Tailwind can be removed first.
+- [x] `npx @tinacms/cli init` → selected Next.js + NPM + TypeScript. Added `tina/config.ts` (demo `post` collection), a demo content file `content/posts/hello-world.md`, and a Pages Router demo route `pages/demo/blog/[filename].tsx` (coexists with the App Router `app/` — fine as a reference for Phase 2, delete once real collections replace it)
+- [x] Verify local Tina admin loads at `/admin/index.html` (dev mode) against a placeholder collection — confirmed `npm run dev` serves `/` and `/admin/index.html` both with HTTP 200
+- [x] Commit scaffold
 
-**Done when:** `npm run dev` serves the Next.js app and the Tina admin loads with no content yet.
+**Done when:** `npm run dev` serves the Next.js app and the Tina admin loads with no content yet. ✅ Done 2026-10-03.
+
+Known rough edges to revisit:
+- Node engine mismatch warning: `@tinacms/cli` wants Node 22.x/24.x, this machine runs v26.8.2 — worked fine so far, but keep an eye out if something breaks later
+- `tina/config.ts` still has placeholder `clientId`/`token` env vars (unset) — fine for local dev, required before any Tina Cloud / production use (Phase 0/6)
 
 ## Phase 2 — Content model
 
